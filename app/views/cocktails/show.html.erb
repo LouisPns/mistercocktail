@@ -1,0 +1,15 @@
+
+<%= link_to("ajouter un cocktail ?", new_cocktail_path) %>
+
+<h3>Liste des restos </h3>
+<% @cocktails.each do |cocktail| %>
+<ol>
+  <%= link_to cocktail.name, cocktail_path(cocktail) %>
+  <%= link_to("modify?", edit_cocktail_path(cocktail)) %>
+  <%= link_to("lache ton comm", new_cocktail_review_path(cocktail)) %>
+
+  <%= link_to "Delete", cocktail_path(cocktail),
+  method: :delete,
+  data: { confirm: "Are you sure?" } %>
+</ol>
+<% end %>
